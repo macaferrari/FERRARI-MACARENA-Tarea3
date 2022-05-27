@@ -12,5 +12,7 @@ private:
   string leyenda;
 public:
   peleador(string, int, int, int, int, int, string);
+  double desgaste(int, int);
+  void show_peleador();
 
 };

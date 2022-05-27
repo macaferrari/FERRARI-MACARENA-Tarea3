@@ -10,6 +10,13 @@ using namespace std;
 
 int main(int argc, char ** argv) {
   //para leer el archivo
+  peleador *peleador1;
+  peleador *peleador2;
+  objeto *objeto1;
+  objeto *objeto2;
+  arena *arenaj;
+  
+  
   
   ifstream entrada (NOMBRE_ARCHIVO);
   string linea;
@@ -46,10 +53,11 @@ int main(int argc, char ** argv) {
 
 
       if (cont_peleador == 1) {
-        peleador peleador1(name, sal, fuer, velo, inte, res, leyenda);
+        peleador1 = new peleador(name, sal, fuer, velo, inte, res, leyenda);
+        
       }
-      else if (cont_peleador == 2) {
-        peleador peleador2(name, sal, fuer, velo, inte, res, leyenda);
+      if (cont_peleador == 2) {
+        peleador2 = new peleador(name, sal, fuer, velo, inte, res, leyenda);
       }
         
       
@@ -73,10 +81,10 @@ int main(int argc, char ** argv) {
       
 
       if (cont_obj == 1) {
-        objeto objeto1(name, tipo, salud, fuerza, vel, intel, resist, leyenda);
+        objeto1 = new objeto(name, tipo, salud, fuerza, vel, intel, resist, leyenda);
       }
-      else if (cont_obj == 2) {
-        objeto objeto2(name, tipo, salud, fuerza, vel, intel, resist, leyenda);
+      if (cont_obj == 2) {
+        objeto2 = new objeto(name, tipo, salud, fuerza, vel, intel, resist, leyenda);
       }
       
 
@@ -97,16 +105,16 @@ int main(int argc, char ** argv) {
       leyenda.erase((len_ley - 6), 6);
 
 
-      arena arena(name, salud, fuerza, vel, intel, resist, leyenda);
+      arenaj = new arena(name, salud, fuerza, vel, intel, resist, leyenda);
 
       if (cont_arena != 1) {
         cout<<"Ya existe una arena para esta batalla"<<endl;
       }
     }
   }
-  
+  peleador1->show_peleador();
+  peleador2->show_peleador();
 
-  
 
 
 
