@@ -18,7 +18,6 @@ int main(int argc, char ** argv) {
   int cont_obj = 0;
   int cont_arena = 0;
   while(getline(entrada, linea)) {
-    char deli[2] = ";";
     stringstream stream(linea);
     string type, t,  name, tipo, salud, fuerza, vel, intel, resist, leyenda;
     getline(stream, type, delimitador);
@@ -29,6 +28,7 @@ int main(int argc, char ** argv) {
     
     
     if (type == "Peleador" || type == "peleador") {
+      cont_peleador++;
       cout<<"es un peleador\n";
       getline(stream, name, delimitador);
       getline(stream, salud, delimitador);
@@ -46,11 +46,11 @@ int main(int argc, char ** argv) {
 
       switch(cont_peleador) {
         case 0:
-          peleador1 = new peleador(name, sal, fuer, velo, inte, res, leyenda);
+          peleador peleador1(name, sal, fuer, velo, inte, res, leyenda);
           break;
 
         case 1:
-          peleador2 = new 
+          peleador peleador2(name, sal, fuer, velo, inte, res, leyenda);
           break;
       }
       
