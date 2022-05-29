@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <time.h>
 #include "peleador.h"
 #include <bits/stdc++.h>
 
@@ -13,8 +15,20 @@ peleador::peleador(string name, int salud, int fuerza, int vel, int intel, int r
   
 }
 double peleador::desgaste(int turno) {
+  if (resist == 0) {
+    return 0;
+  }
   return (exp((-20*turno)/resist)) * (1 + ((20*turno)/resist));
 }
+
+double peleador::impacto(double mr) {
+  int num, c;
+    srand(time(NULL));
+  c = rand() % (3 - 0);
+  
+  return c * ((vel * fuerza) / (vel + fuerza) + intel) * mr;
+}
+
 
 void peleador::show_peleador(){
   cout << name << ": "<< endl;
@@ -26,6 +40,5 @@ void peleador::show_peleador(){
   cout << "Leyenda: " << leyenda << endl;
   cout << ""<< endl;
   
-
 }
   

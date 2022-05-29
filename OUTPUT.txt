@@ -11,16 +11,18 @@ Atributos finales:
 ===============================================================
 
 skull: 
-Salud: 264
-Fuerza: 100
-Velocidad: 77
-Inteligencia: 30
-Resistencia: 90
+-	Salud: 264
+-	Fuerza: 100
+-	Velocidad: 77
+-	Inteligencia: 30
+-	Resistencia: 90
 
 gary: 
-Salud: 240
-Fuerza: 250
-Velocidad: 0
-Inteligencia: 20
-Resistencia: 0
+-	Salud: 240
+-	Fuerza: 250
+-	Velocidad: 0
+-	Inteligencia: 20
+-	Resistencia: 0
+
+===============================================================
 

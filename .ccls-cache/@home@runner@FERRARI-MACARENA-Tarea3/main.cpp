@@ -283,12 +283,20 @@ int main(int argc, char ** argv) {
   final = peleador2->resist + (peleador2->resist)*per;
   peleador2->resist = final;
 
-
-
+//prueba de ecuaciones del enunciado, funcionan
+  int turno = 0;
+  cout << peleador1->desgaste(turno)<< endl;
+  cout << peleador2->desgaste(turno) << endl;
+  double mr1 = peleador1->desgaste(turno);
+  double mr2 = peleador2->desgaste(turno);
+  cout << peleador1->impacto(mr1) << endl;
+  cout << peleador2->impacto(mr2) << endl;
+  
+  
 //escritura archivo OUTPUT.txt
   vector <string> pel1;
   vector <string> pel2;
-  int turno = 0;
+
   salida.open("OUTPUT.txt");
 
 
@@ -305,20 +313,22 @@ int main(int argc, char ** argv) {
   salida << "==============================================================="<< endl;
   salida << endl;
   salida << peleador1->name << ": " << endl;
-  salida << "Salud: " << peleador1->salud << endl;
-  salida << "Fuerza: " << peleador1->fuerza << endl;
-  salida << "Velocidad: " << peleador1->vel << endl;
-  salida << "Inteligencia: " << peleador1->intel << endl;
-  salida << "Resistencia: " << peleador1->resist << endl;
-  salida << ""<< endl;
+  salida << "-\tSalud: " << peleador1->salud << endl;
+  salida << "-\tFuerza: " << peleador1->fuerza << endl;
+  salida << "-\tVelocidad: " << peleador1->vel << endl;
+  salida << "-\tInteligencia: " << peleador1->intel << endl;
+  salida << "-\tResistencia: " << peleador1->resist << endl;
+  salida << endl;
   
   salida << peleador2->name << ": " << endl;
-  salida << "Salud: " << peleador2->salud << endl;
-  salida << "Fuerza: " << peleador2->fuerza << endl;
-  salida << "Velocidad: " << peleador2->vel << endl;
-  salida << "Inteligencia: " << peleador2->intel << endl;
-  salida << "Resistencia: " << peleador2->resist << endl;
-  salida << ""<< endl;
+  salida << "-\tSalud: " << peleador2->salud << endl;
+  salida << "-\tFuerza: " << peleador2->fuerza << endl;
+  salida << "-\tVelocidad: " << peleador2->vel << endl;
+  salida << "-\tInteligencia: " << peleador2->intel << endl;
+  salida << "-\tResistencia: " << peleador2->resist << endl;
+  salida << endl;
+  salida << "==============================================================="<< endl;
+  salida << endl;
 
 
 
