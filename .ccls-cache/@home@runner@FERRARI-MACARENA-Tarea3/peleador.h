@@ -2,7 +2,7 @@
 using namespace std;
 
 class peleador {
-private:
+public:
   string name;
   int salud;
   int fuerza;
@@ -10,9 +10,9 @@ private:
   int intel;
   int resist;
   string leyenda;
-public:
+
   peleador(string, int, int, int, int, int, string);
-  double desgaste(int, int);
+  double desgaste(int);
   void show_peleador();
 
 };

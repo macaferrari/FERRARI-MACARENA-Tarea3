@@ -1,6 +1,7 @@
 #include "objeto.h"
 
-objeto::objeto(string name, string tipo, string salud, string fuerza, string vel, string intel , string resist, string leyenda) {
+objeto::objeto(string pel, string name, string tipo, string salud, string fuerza, string vel, string intel , string resist, string leyenda) {
+  this->pel = pel;
   this->name = name;
   this->tipo = tipo;
   this->salud = salud;

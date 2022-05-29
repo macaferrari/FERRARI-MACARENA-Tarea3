@@ -2,7 +2,7 @@
 using namespace std;
 
 class arena {
-private:
+public:
   string name;
   string salud;
   string fuerza;
@@ -11,6 +11,6 @@ private:
   string resist;
   string leyenda;
 
-public:
+
   arena(string, string, string, string, string, string, string);
 };

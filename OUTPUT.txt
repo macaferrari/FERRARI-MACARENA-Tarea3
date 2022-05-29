@@ -1,1 +1,26 @@
-"Peleador;skull;120;50;60;40;30;""
+skull equipado con los objetos Parabellum y Chaleco antibalas 
+
+Se enfrentará contra 
+
+gary equipado con los objetos Beretta
+
+Se enfrentarán en el Campo de batalla de los dioses, se dice que este es el lugar de reposo de lo mas grandes guerreros de la historia 
+
+Atributos finales: 
+
+===============================================================
+
+skull: 
+Salud: 264
+Fuerza: 100
+Velocidad: 77
+Inteligencia: 30
+Resistencia: 90
+
+gary: 
+Salud: 240
+Fuerza: 250
+Velocidad: 0
+Inteligencia: 20
+Resistencia: 0
+

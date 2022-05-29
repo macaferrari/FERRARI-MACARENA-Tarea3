@@ -12,18 +12,19 @@ peleador::peleador(string name, int salud, int fuerza, int vel, int intel, int r
   this->leyenda = leyenda;
   
 }
-double peleador::desgaste(int resist, int turno) {
+double peleador::desgaste(int turno) {
   return (exp((-20*turno)/resist)) * (1 + ((20*turno)/resist));
 }
 
 void peleador::show_peleador(){
-  cout << "\nNombre: " << name << endl;
+  cout << name << ": "<< endl;
   cout << "Salud: " << salud << endl;
   cout << "Fuerza: " << fuerza << endl;
   cout << "Velocidad: " << vel << endl;
   cout << "Inteligencia: " << intel << endl;
   cout << "Resistencia: " << resist << endl;
   cout << "Leyenda: " << leyenda << endl;
+  cout << ""<< endl;
   
 
 }

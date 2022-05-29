@@ -2,7 +2,8 @@
 using namespace std;
 
 class objeto {
-private:
+public:
+  string pel;
   string name;
   string tipo;
   string salud;
@@ -12,6 +13,6 @@ private:
   string resist;
   string leyenda;
 
-public:
-  objeto(string, string, string, string, string, string, string, string);
+
+  objeto(string, string, string, string, string, string, string, string, string);
 };
