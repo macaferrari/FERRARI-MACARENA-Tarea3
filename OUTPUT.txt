@@ -8,7 +8,7 @@ Se enfrentarán en el Campo de batalla de los dioses, se dice que este es el lug
 
 Atributos finales: 
 
-===============================================================
+----------------------------------------------------------------------------------------------------------------------------------------------------
 
 skull: 
 -	Salud: 264
@@ -24,5 +24,9 @@ gary:
 -	Inteligencia: 20
 -	Resistencia: 0
 
-===============================================================
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+La arena a conferido a skull la habilidad Rey de los Muertos
+
+La arena a conferido a gary la habilidad Último aliento
 

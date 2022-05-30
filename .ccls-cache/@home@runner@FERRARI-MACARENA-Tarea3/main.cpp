@@ -23,6 +23,22 @@ int main(int argc, char ** argv) {
   
   vector <string> peleadores;
   vector <string> objetos;
+  vector <string> pel1;
+  vector <string> pel2;
+  vector <string> hab_esp;
+
+  for (int v = 0; v < 3; v++) {
+    if (v == 0) {
+      hab_esp.push_back("Ninguno");
+    }
+    else if (v == 1) {
+      hab_esp.push_back("Rey de los Muertos");
+    }
+    else if (v == 2) {
+      hab_esp.push_back("Último aliento");
+    }
+  }
+
   
   
   
@@ -98,15 +114,32 @@ int main(int argc, char ** argv) {
 
       if (cont_obj == 1) {
         objeto1 = new objeto(p, name, tipo, salud, fuerza, vel, intel, resist, leyenda);
+        if (objeto1->pel == peleador1->name) {
+          pel1.push_back(objeto1->name);
+        }
+        else {pel2.push_back(objeto1->name);}
       }
       if (cont_obj == 2) {
         objeto2 = new objeto(p, name, tipo, salud, fuerza, vel, intel, resist, leyenda);
+        if (objeto2->pel == peleador1->name) {
+          pel1.push_back(objeto2->name);
+        }
+        else {pel2.push_back(objeto2->name);}
+      
       }
       if (cont_obj == 3) {
         objeto3 = new objeto (p, name, tipo, salud, fuerza, vel, intel, resist, leyenda);
+        if (objeto3->pel == peleador1->name) {
+          pel1.push_back(objeto3->name);
+        }
+        else {pel2.push_back(objeto3->name);}
       }
       if (cont_obj == 4) {
         objeto4 = new objeto(p, name, tipo, salud, fuerza, vel, intel, resist, leyenda);
+        if (objeto4->pel == peleador1->name) {
+          pel1.push_back(objeto4->name);
+        }
+        else {pel2.push_back(objeto4->name);}
       }
       
 
@@ -283,35 +316,76 @@ int main(int argc, char ** argv) {
   final = peleador2->resist + (peleador2->resist)*per;
   peleador2->resist = final;
 
+
+  //habilidad de los peleadores
+  
+  int pel1_h = rand() % 2 + 0;
+  int pel2_h = rand() % 3 + 1;
+  
+
+  while(pel2_h == pel1_h) {
+    pel2_h = rand() % 3 + 1;
+  }
+  cout <<pel1_h << endl;
+  cout <<pel2_h << endl;
+  
+
+  string hab_1 = hab_esp[pel1_h];
+  string hab_2 = hab_esp[pel2_h];
+  
 //prueba de ecuaciones del enunciado, funcionan
+  /*
   int turno = 0;
   cout << peleador1->desgaste(turno)<< endl;
   cout << peleador2->desgaste(turno) << endl;
   double mr1 = peleador1->desgaste(turno);
   double mr2 = peleador2->desgaste(turno);
   cout << peleador1->impacto(mr1) << endl;
-  cout << peleador2->impacto(mr2) << endl;
+  cout << peleador2->impacto(mr2) << endl;*/
+
   
+
   
 //escritura archivo OUTPUT.txt
-  vector <string> pel1;
-  vector <string> pel2;
-
+  
   salida.open("OUTPUT.txt");
 
-
-  salida << peleador1->name << " equipado con los objetos " <<  objeto1->name << " y " << objeto2->name << endl;
-  salida << endl;
-  salida << "Se enfrentará contra " << endl;
-  salida << endl;
-  salida << peleador2->name << " equipado con los objetos " << objeto3->name << endl;
+  if (pel1.size() == 1) {
+    salida << peleador1->name << " equipado con los objetos " << objeto1->name << endl;
+    salida << endl;
+    salida << "Se enfrentará contra " << endl;
+    salida << endl;
+    if (pel2.size() == 1) {
+    salida << peleador2->name << " equipado con los objetos " <<  objeto2->name <<endl;
+    }
+    else if (pel2.size() == 2) {
+    salida << peleador2->name << " equipado con los objetos " <<  objeto2->name << " y " << objeto3->name << endl;
+  }
+  }
+  else if (pel1.size() == 2) {
+    salida << peleador1->name << " equipado con los objetos " <<  objeto1->name << " y " << objeto2->name << endl;
+    salida << endl;
+    salida << "Se enfrentará contra " << endl;
+    salida << endl;
+    
+    if (pel2.size() == 1) {
+    salida << peleador2->name << " equipado con los objetos " <<  objeto3->name <<endl;
+    }
+    else if (pel2.size() == 2) {
+    salida << peleador2->name << " equipado con los objetos " <<  objeto3->name << " y " << objeto4->name << endl;
+  }
+  }
   salida <<endl;
+  
   salida << "Se enfrentarán en el " << arenaj->leyenda << endl;
   salida << endl;
+  
   salida << "Atributos finales: " << endl;
   salida << endl;
-  salida << "==============================================================="<< endl;
+  
+  salida << "----------------------------------------------------------------------------------------------------------------------------------------------------"<< endl;
   salida << endl;
+  
   salida << peleador1->name << ": " << endl;
   salida << "-\tSalud: " << peleador1->salud << endl;
   salida << "-\tFuerza: " << peleador1->fuerza << endl;
@@ -327,9 +401,25 @@ int main(int argc, char ** argv) {
   salida << "-\tInteligencia: " << peleador2->intel << endl;
   salida << "-\tResistencia: " << peleador2->resist << endl;
   salida << endl;
-  salida << "==============================================================="<< endl;
+  salida << "----------------------------------------------------------------------------------------------------------------------------------------------------"<< endl;
   salida << endl;
 
+  if (hab_1 == "Rey de los Muertos") {
+    salida << "La arena a conferido a " << peleador1->name << " la habilidad "<< hab_1 << endl;
+    
+  }
+  else if (hab_1 == "Último aliento") {
+    salida << "La arena a conferido a " << peleador1->name << " la habilidad "<< hab_1 << endl;
+  }
+  salida << endl;
+  if (hab_2 == "Rey de los Muertos") {
+    salida << "La arena a conferido a " << peleador2->name << " la habilidad "<< hab_2 << endl;
+  }
+  else if (hab_2 == "Último aliento") {
+    salida << "La arena a conferido a " << peleador2->name << " la habilidad "<< hab_2 << endl;
+  }
+  salida << endl;
+  
 
 
   

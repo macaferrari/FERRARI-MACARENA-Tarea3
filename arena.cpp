@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <time.h>
 #include "arena.h"
 
 arena::arena(string name, string salud, string fuerza, string vel, string intel , string resist, string leyenda) {
