@@ -13,7 +13,7 @@ public:
 
   peleador(string, int, int, int, int, int, string);
   double desgaste(int);
-  double impacto(double);
+  double impacto(double, int);
   void show_peleador();
 
 };

@@ -28,5 +28,24 @@ gary:
 
 La arena a conferido a skull la habilidad Rey de los Muertos
 
-La arena a conferido a gary la habilidad Último aliento
+
+--------------------------------------------------------------------------
+
+INICIO PELEA: 
+
+skull ataca a gary con un golpe de 73, vida de gary queda en 167
+
+gary pierde el ataque
+
+skull ataca a gary con un golpe de 73, vida de gary queda en 94
+
+gary pierde el ataque
+
+skull ataca a gary con un golpe de 73, vida de gary queda en 21
+
+gary pierde el ataque
+
+skull ataca a gary con un golpe de 73, vida de gary queda en 0
+
+-------------------- gary muere -----------------------------------------
 

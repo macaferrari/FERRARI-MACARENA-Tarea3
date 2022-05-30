@@ -21,10 +21,7 @@ double peleador::desgaste(int turno) {
   return (exp((-20*turno)/resist)) * (1 + ((20*turno)/resist));
 }
 
-double peleador::impacto(double mr) {
-  int num, c;
-    srand(time(NULL));
-  c = rand() % (3 - 0);
+double peleador::impacto(double mr, int c) {
   
   return c * ((vel * fuerza) / (vel + fuerza) + intel) * mr;
 }

@@ -12,9 +12,3 @@ arena::arena(string name, string salud, string fuerza, string vel, string intel 
   this->leyenda = leyenda;
   
 }
-int arena::habilidad_especial() {
-  int hab;
-    srand(time(NULL));
-  hab = rand() % (3 - 0);
-  return hab;
-}
