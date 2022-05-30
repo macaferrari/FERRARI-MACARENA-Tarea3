@@ -419,6 +419,13 @@ int main(int argc, char ** argv) {
     salida << "La arena a conferido a " << peleador2->name << " la habilidad "<< hab_2 << endl;
   }
   salida << endl;
+  salida << "----------------------------------------------------------------------------------------------------------------------------------------------------"<< endl;
+  salida << endl;
+  
+  salida << "INICIO PELEA: " << endl;
+  salida << endl;
+
+  //hacer que juegue la weaita por la chucha juego de mierdadaaaaaaaa no entiendo niuna weaaaaaaaaaa pbn qliooooo te odioooooo aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   
 
 
