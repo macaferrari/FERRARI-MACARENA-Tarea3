@@ -33,73 +33,19 @@ La arena a conferido a gary la habilidad Rey de los Muertos
 
 INICIO PELEA: 
 
-skull pierde el ataque
+skull hace un critico, golpe de  146, gary pierde  146 de vida. Vida de gary queda en 94
 
-gary pierde el ataque
+gary ataca a skull con un golpe de 0, vida de skull queda en 264
 
 -------------------- Fin 1° turno ---------------------------------------
 
-skull pierde el ataque
+skull ataca a gary con un golpe de 73, vida de gary queda en 21
 
 gary ataca a skull con un golpe de 0, vida de skull queda en 264
 
 -------------------- Fin 2° turno ---------------------------------------
 
-skull pierde el ataque
-
-gary ataca a skull con un golpe de 0, vida de skull queda en 264
-
--------------------- Fin 3° turno ---------------------------------------
-
-skull pierde el ataque
-
-gary ataca a skull con un golpe de 0, vida de skull queda en 264
-
--------------------- Fin 4° turno ---------------------------------------
-
-skull pierde el ataque
-
-gary ataca a skull con un golpe de 0, vida de skull queda en 264
-
--------------------- Fin 5° turno ---------------------------------------
-
-skull ataca a gary con un golpe de 53, vida de gary queda en 187
-
-gary pierde el ataque
-
--------------------- Fin 6° turno ---------------------------------------
-
-skull ataca a gary con un golpe de 53, vida de gary queda en 134
-
-gary pierde el ataque
-
--------------------- Fin 7° turno ---------------------------------------
-
-skull pierde el ataque
-
-gary pierde el ataque
-
--------------------- Fin 8° turno ---------------------------------------
-
-skull hace un critico, golpe de  107, gary pierde  107 de vida. Vida de gary queda en 27
-
-gary ataca a skull con un golpe de 0, vida de skull queda en 264
-
--------------------- Fin 9° turno ---------------------------------------
-
-skull ataca a gary con un golpe de 29, vida de gary queda en 0
-
--------------------- gary muere -----------------------------------------
-
-------- Habilidad especial Rey de los muerto activada -------------------
-
--	gary revive, inteligencia pierde 10 puntos.
-
-gary ataca a skull con un golpe de 0, vida de skull queda en 264
-
--------------------- Fin 10° turno ---------------------------------------
-
-skull ataca a gary con un golpe de 29, vida de gary queda en 0
+skull ataca a gary con un golpe de 73, vida de gary queda en 0
 
 -------------------- gary muere -----------------------------------------
 

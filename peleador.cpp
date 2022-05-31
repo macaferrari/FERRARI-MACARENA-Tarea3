@@ -53,7 +53,7 @@ double peleador::rey_muertos() {
   int prob;
   srand(time(NULL));
   prob = rand()%(12-1);
-  cout << prob << endl;
+
   if (prob == 7 || prob == 2 || prob == 4) {
     return 1;
   }
