@@ -168,7 +168,7 @@ int main(int argc, char ** argv) {
   
 //Agregar o restar a los atributos de los peleadores
   //primero al peleador1
-
+  peleador1->show_peleador();
   string pel = peleador1->name;
   if (pel == objeto1->pel) {
     int cambio = stoi(objeto1->salud) + peleador1->salud;
@@ -182,6 +182,7 @@ int main(int argc, char ** argv) {
     cambio = stoi(objeto1->resist) + peleador1->resist;
     peleador1->resist = cambio;
   }
+  peleador1->show_peleador();
   
   if (pel == objeto2->pel) {
     int cambio = stoi(objeto2->salud) + peleador1->salud;
@@ -200,7 +201,7 @@ int main(int argc, char ** argv) {
     if (cambio < 0) {cambio = 0;}
     peleador1->resist = cambio;
   }
-
+  peleador1->show_peleador();
   //peleador2
 
   pel = peleador2->name;
@@ -423,6 +424,9 @@ int main(int argc, char ** argv) {
     if (peleador1->vel > peleador2->vel) {
       string pel1 = peleador1->name;
       string pel2 = peleador2->name;
+      int vida_pel1 = peleador1->salud;
+      int vida_pel2 = peleador2->salud;
+      
       //turno del jugador 1
       double mr1;
       double mr2;
@@ -462,7 +466,7 @@ int main(int argc, char ** argv) {
         if (n_vida2 == 0) {
           salida << "-------------------- " << pel2 << " muere -----------------------------------------" << endl;
           salida << endl;
-          break;
+          
         }
       }
       else if (p1 == 2) {
@@ -481,6 +485,9 @@ int main(int argc, char ** argv) {
         if (n_vida2 == 0) {
           salida << "-------------------- " << pel2 << " muere -----------------------------------------" << endl;
           salida << endl;
+          
+        }
+        if (n_vida2 == 0) {
           break;
         }
       }
@@ -531,8 +538,14 @@ int main(int argc, char ** argv) {
         if (n_vida1 == 0) {
           salida << "-------------------- " << pel1 << " muere -----------------------------------------" << endl;
           salida << endl;
-          break;
+          
         }
+      int t = turno + 1;
+      salida << "-------------------- Fin " << t << "° turno ---------------------------------------" << endl;
+      salida << endl;
+      if (n_vida1 == 0) {
+        break;
+      }
       }
       
       
@@ -541,6 +554,8 @@ int main(int argc, char ** argv) {
     else if (peleador2->vel > peleador1->vel) {
       string pel1 = peleador2->name;
       string pel2 = peleador1->name;
+      int vida_pel1 = peleador1->salud;
+      int vida_pel2 = peleador2->salud;
       //turno del jugador 1
       double mr1;
       double mr2;
@@ -588,8 +603,13 @@ int main(int argc, char ** argv) {
         salida << pel1 << " hace un critico, golpe de  " << g1 << ", " << pel2 << " pierde  " << g1 << " de vida. Vida de " << pel2 << " queda en " << n_vida2 << endl;
         if (n_vida2 == 0) {
           salida << "-------------------- " << pel2 << " muere -----------------------------------------" << endl;
+          salida << endl;
+          
+        }
+        if (n_vida2 == 0) {
           break;
         }
+        
       }
       //turno pel2
       
@@ -613,7 +633,7 @@ int main(int argc, char ** argv) {
         salida << pel2 << " ataca a " << pel1 << " con un golpe de " << g2 << ", vida de " << pel1 << " queda en " << n_vida1 << endl;
         if (n_vida1 == 0) {
           salida << "-------------------- " << pel1 << " muere -----------------------------------------" << endl;
-          break;
+          
         }
       }
       else if (p2 == 2) {
@@ -631,8 +651,16 @@ int main(int argc, char ** argv) {
         salida << pel2 << " ataca a " << pel1 << " con un golpe de " << g2 << ", vida de " << pel1 << " queda en " << n_vida1 << endl;
         if (n_vida1 == 0) {
           salida << "-------------------- " << pel1 << " muere -----------------------------------------" << endl;
-          break;
+          
         }
+        int t = turno + 1;
+        salida << "-------------------- Fin " << t << "° turno ---------------------------------------" << endl;
+        salida << endl;
+
+      if (n_vida1 == 0) {
+        break;
+      }
+
       }
       }
 

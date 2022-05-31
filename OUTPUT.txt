@@ -26,26 +26,21 @@ gary:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-La arena a conferido a skull la habilidad Rey de los Muertos
+La arena a conferido a skull la habilidad Último aliento
 
+La arena a conferido a gary la habilidad Último aliento
 
 --------------------------------------------------------------------------
 
 INICIO PELEA: 
 
-skull ataca a gary con un golpe de 73, vida de gary queda en 167
+skull hace un critico, golpe de  146, gary pierde  146 de vida. Vida de gary queda en 94
 
-gary pierde el ataque
+gary ataca a skull con un golpe de 0, vida de skull queda en 264
 
-skull ataca a gary con un golpe de 73, vida de gary queda en 94
+-------------------- Fin 1° turno ---------------------------------------
 
-gary pierde el ataque
-
-skull ataca a gary con un golpe de 73, vida de gary queda en 21
-
-gary pierde el ataque
-
-skull ataca a gary con un golpe de 73, vida de gary queda en 0
+skull hace un critico, golpe de  146, gary pierde  146 de vida. Vida de gary queda en 0
 
 -------------------- gary muere -----------------------------------------
 
