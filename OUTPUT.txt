@@ -28,7 +28,7 @@ gary:
 
 La arena a conferido a skull la habilidad Último aliento
 
-La arena a conferido a gary la habilidad Último aliento
+La arena a conferido a gary la habilidad Rey de los Muertos
 
 --------------------------------------------------------------------------
 
@@ -39,6 +39,12 @@ skull hace un critico, golpe de  146, gary pierde  146 de vida. Vida de gary que
 gary ataca a skull con un golpe de 0, vida de skull queda en 264
 
 -------------------- Fin 1° turno ---------------------------------------
+
+skull pierde el ataque
+
+gary pierde el ataque
+
+-------------------- Fin 2° turno ---------------------------------------
 
 skull hace un critico, golpe de  146, gary pierde  146 de vida. Vida de gary queda en 0
 

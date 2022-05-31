@@ -15,5 +15,6 @@ public:
   double desgaste(int);
   double impacto(double, int);
   void show_peleador();
+  
 
 };
