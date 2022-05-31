@@ -38,4 +38,25 @@ void peleador::show_peleador(){
   cout << ""<< endl;
   
 }
+
+double peleador::ult_aliento() { 
+  int prob;
+  srand(time(NULL));
+  prob = rand()%(12-1);
+
+  if (prob == 7 || prob == 2 || prob == 4 || prob == 9) {
+    return 1;
+  }
+  else {return 0;}
+}
+double peleador::rey_muertos() { 
+  int prob;
+  srand(time(NULL));
+  prob = rand()%(12-1);
+  cout << prob << endl;
+  if (prob == 7 || prob == 2 || prob == 4) {
+    return 1;
+  }
+  else {return 0;}
+}
   

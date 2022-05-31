@@ -428,6 +428,10 @@ int main(int argc, char ** argv) {
 
   //hacer que juegue la weaita por la chucha juego de mierdadaaaaaaaa no entiendo niuna weaaaaaaaaaa pbn qliooooo te odioooooo aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   int turno = 0;
+  string perdedor;
+  int h_usada1 = 0;
+  int h_usada2 = 0;
+  string ganador;
   while (1) {
     if (peleador1->vel > peleador2->vel) {
       string pel1 = peleador1->name;
@@ -436,6 +440,8 @@ int main(int argc, char ** argv) {
       int vida_pel2 = peleador2->salud;
       int n_vida1;
       int n_vida2;
+      
+      
       
       //turno del jugador 1
       double mr1;
@@ -476,6 +482,8 @@ int main(int argc, char ** argv) {
         if (n_vida2 == 0) {
           salida << "-------------------- " << pel2 << " muere -----------------------------------------" << endl;
           salida << endl;
+          perdedor = pel2;
+          ganador = pel1;
           
         }
       }
@@ -495,12 +503,54 @@ int main(int argc, char ** argv) {
         if (n_vida2 == 0) {
           salida << "-------------------- " << pel2 << " muere -----------------------------------------" << endl;
           salida << endl;
+          perdedor = pel2;
+          ganador = pel1;
           
         }
         
       }
       if (n_vida2 == 0) {
-          break;
+        if (perdedor == peleador2->name) {
+          cout << perdedor << endl;
+          if (hab_2 == "Ninguno" ) {
+          salida << "----------------- Fin de la pelea ----------------------------------------" << endl;
+          salida <<endl;
+            break;
+        }
+          else if (hab_2 == "Rey de los Muertos") {
+            
+            
+            double prob = peleador2->rey_muertos();
+            cout << prob << endl;
+            if (prob == 1) {
+              if (h_usada2 == 0) {
+                salida << "------- Habilidad especial Rey de los muerto activada -------------------" << endl;
+                salida << endl;
+                peleador2->salud = vida_pel2;
+                int ptos = (peleador2->intel)/2; 
+                int n_intel = peleador2->intel - ptos;
+                salida << "-\t" << peleador2->name << " revive, inteligencia pierde " << ptos << " puntos." << endl;
+                salida << endl;
+                h_usada2++;
+                }
+              else {
+                
+                salida << "----------------- Fin de la pelea ----------------------------------------" << endl;
+                salida <<endl;
+                break;}
+                
+            }
+            
+            if (prob == 0) {
+              salida << "----------------- Fin de la pelea ----------------------------------------" << endl;
+              salida <<endl;
+              break;
+            }
+          }
+          else if (hab_2 == "Último aliento") {
+            break;
+          }
+        }
         }
       //turno pel2
       
@@ -530,6 +580,8 @@ int main(int argc, char ** argv) {
         if (n_vida1 == 0) {
           salida << "-------------------- " << pel1 << " muere -----------------------------------------" << endl;
           salida << endl;
+          perdedor = pel1;
+          ganador = pel2;
           
         }
       }
@@ -549,11 +601,40 @@ int main(int argc, char ** argv) {
         if (n_vida1 == 0) {
           salida << "-------------------- " << pel1 << " muere -----------------------------------------" << endl;
           salida << endl;
+          perdedor = pel1;
+          ganador = pel2;
           
         }
       }
       if (n_vida1 == 0) {
-        break;
+        if (perdedor == peleador1->name) {
+          if (hab_1 == "Ninguno" ) {
+            salida << "----------------- Fin de la pelea ----------------------------------------" << endl;
+            salida <<endl;
+            break;
+        }
+          else if (hab_1 == "Rey de los Muertos") {
+            if (h_usada1 == 0) {
+              double prob = peleador1->rey_muertos();
+              if (prob == 1) {
+                salida << "------- Habilidad especial Rey de los muerto activada -------------------" << endl;
+                salida << endl;
+                peleador2->salud = vida_pel1;
+                int ptos = (peleador1->intel)/2; 
+                int n_intel = peleador1->intel - ptos;
+                salida << peleador1->name << " revive, inteligencia pierde " << ptos << " puntos." << endl;
+                salida << endl;
+                h_usada1++;
+              }
+              else {break;}
+            }
+            
+          }
+          else if (hab_1 == "Último aliento") {
+            break;
+          }
+      }   
+        
       }
       int t = turno + 1;
       salida << "-------------------- Fin " << t << "° turno ---------------------------------------" << endl;
@@ -572,6 +653,7 @@ int main(int argc, char ** argv) {
       int vida_pel2 = peleador2->salud;
       int n_vida1;
       int n_vida2;
+      
       
       //turno del jugador 1
       double mr1;
@@ -612,6 +694,8 @@ int main(int argc, char ** argv) {
         if (n_vida2 == 0) {
           salida << "-------------------- " << pel2 << " muere -----------------------------------------" << endl;
           salida << endl;
+          perdedor = pel2;
+          ganador = pel1;
           
         }
       }
@@ -631,12 +715,31 @@ int main(int argc, char ** argv) {
         if (n_vida2 == 0) {
           salida << "-------------------- " << pel2 << " muere -----------------------------------------" << endl;
           salida << endl;
+          perdedor = pel2;
+          ganador = pel1;
           
         }
         
       }
       if (n_vida2 == 0) {
+      if (perdedor == peleador1->name) {
+        if (hab_1 == "Ninguno" ) {
+          salida << "----------------- Fin de la pelea ----------------------------------------" << endl;
+          salida <<endl;
           break;
+      }
+        else if (hab_1 == "Rey de los Muertos") {
+          double prob = peleador1->rey_muertos();
+          if (prob == 1) {
+            salida << "------- Habilidad especial Rey de los muerto activada -------------------" << endl;
+            salida << endl;
+            int ptos;
+            salida << peleador1->name << " revive, inteligencia pierde " << ptos << " puntos." << endl;
+            salida << endl;
+          }
+        }
+      }
+          
         }
       //turno pel2
       
@@ -666,6 +769,8 @@ int main(int argc, char ** argv) {
         if (n_vida1 == 0) {
           salida << "-------------------- " << pel1 << " muere -----------------------------------------" << endl;
           salida << endl;
+          perdedor = pel1;
+          ganador = pel2;
           
         }
       }
@@ -685,11 +790,38 @@ int main(int argc, char ** argv) {
         if (n_vida1 == 0) {
           salida << "-------------------- " << pel1 << " muere -----------------------------------------" << endl;
           salida << endl;
+          perdedor = pel1;
+          ganador = pel2;
           
         }
       }
     if (n_vida1 == 0) {
+      if (perdedor == peleador2->name) {
+    cout << perdedor << endl;
+    if (hab_2 == "Ninguno" ) {
+    salida << "----------------- Fin de la pelea ----------------------------------------" << endl;
+    salida <<endl;
       break;
+  }
+    else if (hab_2 == "Rey de los Muertos") {
+      double prob = peleador2->rey_muertos();
+      cout << prob << endl;
+      if (prob == 1) {
+        salida << "------- Habilidad especial Rey de los muerto activada -------------------" << endl;
+        salida << endl;
+        int ptos;
+        salida << "-\t" << peleador2->name << " revive, inteligencia pierde " << ptos << " puntos." << endl;
+        salida << endl;
+      }
+      
+      if (prob == 0) {
+        salida << "----------------- Fin de la pelea ----------------------------------------" << endl;
+        salida <<endl;
+        break;
+      }
+    }
+  }
+      
     }
     int t = turno + 1;
     salida << "-------------------- Fin " << t << "° turno ---------------------------------------" << endl;
@@ -699,12 +831,26 @@ int main(int argc, char ** argv) {
     turno++; 
     }
     }
+
+  if (ganador == peleador1->name) {
+    salida <<" ------------------ Ganador: " << peleador1->name << " ----------------------------------------" << endl;
+    salida << endl;
+  }
+  else if (ganador == peleador2->name) {
+    salida <<" ------------------ Ganador: " << peleador2->name << " ----------------------------------------" << endl;
+    salida << endl;
+  
+  }
+
+  
+  
   
 
 
   
   
   salida.close();
+  
   return 0;
   
 }
