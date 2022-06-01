@@ -1,8 +1,0 @@
-/*
-  delete(peleador1);
-  delete(peleador2);
-  delete(objeto1);
-  delete(objeto2);
-  delete(objeto3);
-  delete(objeto4);
-  delete(arenaj);*/

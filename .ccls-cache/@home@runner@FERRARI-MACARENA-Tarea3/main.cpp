@@ -13,12 +13,19 @@ using namespace std;
 
 int main(int argc, char ** argv) {
   string archivo;
+
   if (argc > 1) {
     for (int i = 1; i < argc; i++) {
       archivo += argv[i];
+      archivo += " ";
     }
+    int len = archivo.length();
+    archivo.erase(len-1, 1);
   }
-  cout << archivo;
+  else if (argc == 1) {
+    archivo = "data tarea 3.csv";
+  }
+  
   srand(time(NULL));
   //para leer el archivo
   peleador *peleador1;
@@ -50,9 +57,10 @@ int main(int argc, char ** argv) {
   
   
   
-  ifstream entrada (NOMBRE_ARCHIVO);
+  ifstream entrada;
   ofstream salida;
   
+  entrada.open(archivo);
   string linea;
   char delimitador = ';';
   int cont_peleador = 0;
@@ -172,7 +180,9 @@ int main(int argc, char ** argv) {
 
       
     }
+    
   }
+  entrada.close();
   
 //Agregar o restar a los atributos de los peleadores
   //primero al peleador1
@@ -334,18 +344,6 @@ int main(int argc, char ** argv) {
   string hab_1 = hab_esp[pel1_h];
   string hab_2 = hab_esp[pel2_h];
   
-//prueba de ecuaciones del enunciado, funcionan
-  /*
-  int turno = 0;
-  cout << peleador1->desgaste(turno)<< endl;
-  cout << peleador2->desgaste(turno) << endl;
-  double mr1 = peleador1->desgaste(turno);
-  double mr2 = peleador2->desgaste(turno);
-  cout << peleador1->impacto(mr1) << endl;
-  cout << peleador2->impacto(mr2) << endl;*/
-
-  
-
   
 //escritura archivo OUTPUT.txt
   
@@ -426,7 +424,6 @@ int main(int argc, char ** argv) {
   salida << "INICIO PELEA: " << endl;
   salida << endl;
 
-  //hacer que juegue la weaita por la chucha juego de mierdadaaaaaaaa no entiendo niuna weaaaaaaaaaa pbn qliooooo te odioooooo aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   int turno = 0;
   string perdedor;
   int h_usada1 = 0;
@@ -511,7 +508,7 @@ int main(int argc, char ** argv) {
       }
       if (n_vida2 == 0) {
         if (perdedor == peleador2->name) {
-          cout << perdedor << endl;
+          
           if (hab_2 == "Ninguno" ) {
           salida << "----------------- Fin de la pelea ----------------------------------------" << endl;
           salida <<endl;
@@ -521,7 +518,7 @@ int main(int argc, char ** argv) {
             
             
             double prob = peleador2->rey_muertos();
-            cout << prob << endl;
+            
             if (prob == 1) {
               if (h_usada2 == 0) {
                 salida << "------- Habilidad especial Rey de los muerto activada -------------------" << endl;
@@ -554,9 +551,12 @@ int main(int argc, char ** argv) {
         }
         //ultimo aliento
       else if (n_vida2 >= 1 && n_vida2 <= 10) {
+        
         if (hab_2 == "Último aliento") {
           double ult_a = peleador2->ult_aliento();
-          if (ult_a == 0) {
+          if (ult_a == 1) {
+            salida << "------- Habilidad especial Útlimo aliento activada -------------------" << endl;
+            salida << endl;
             peleador2->salud = 1;
             int f = (peleador2->fuerza)*0.5;
             int i = (peleador2->intel)*0.5;
@@ -656,9 +656,12 @@ int main(int argc, char ** argv) {
         
       }
       else if (n_vida1 >= 1 && n_vida1 <= 10) {
+        
         if (hab_1 == "Último aliento") {
           double ult_a = peleador1->ult_aliento();
-          if (ult_a == 0) {
+          if (ult_a == 1) {
+            salida << "------- Habilidad especial Útlimo aliento activada -------------------" << endl;
+            salida << endl;
             peleador1->salud = 1;
             int f = (peleador1->fuerza)*0.5;
             int i = (peleador1->intel)*0.5;
@@ -671,6 +674,7 @@ int main(int argc, char ** argv) {
             peleador1->resist = cambio;
             
           }
+          
         }
       }
       int t = turno + 1;
@@ -686,10 +690,11 @@ int main(int argc, char ** argv) {
     else if (peleador2->vel > peleador1->vel) {
       string pel1 = peleador2->name;
       string pel2 = peleador1->name;
-      int vida_pel1 = peleador1->salud;
-      int vida_pel2 = peleador2->salud;
+      int vida_pel1 = peleador2->salud;
+      int vida_pel2 = peleador1->salud;
       int n_vida1;
       int n_vida2;
+      
       
       
       //turno del jugador 1
@@ -705,26 +710,26 @@ int main(int argc, char ** argv) {
       p2 = rand()%(3 - 0);
       
       
-      mr1 = peleador1->desgaste(turno);
-      g1 = peleador1->impacto(mr1, p1);
+      mr1 = peleador2->desgaste(turno);
+      g1 = peleador2->impacto(mr1, p1);
 
       
 
       if (p1 == 0) {
-        salida << peleador1->name << " pierde el ataque" << endl;
+        salida << pel1 << " pierde el ataque" << endl;
         salida << endl;
       }
       else if (p1 == 1) {
         //restarle vida al jugador
-        int vida2 = peleador2->salud;
+        int vida2 = peleador1->salud;
         n_vida2 = vida2 - g1;
         
         if (n_vida2 <= 0) {
-          peleador2->salud = 0;
+          peleador1->salud = 0;
           n_vida2 = 0;
           
         }
-        else {peleador2->salud = n_vida2;}
+        else {peleador1->salud = n_vida2;}
         
         salida << pel1 << " ataca a " << pel2 << " con un golpe de " << g1 << ", vida de " << pel2 << " queda en " << n_vida2 << endl;
         salida << endl;
@@ -738,14 +743,14 @@ int main(int argc, char ** argv) {
       }
       else if (p1 == 2) {
         //restarle vida al jugador
-        int vida2 = peleador2->salud;
+        int vida2 = peleador1->salud;
         n_vida2 = vida2 - g1;
         if (n_vida2 <= 0) {
-          peleador2->salud = 0;
+          peleador1->salud = 0;
           n_vida2 = 0;
           
         }
-        else {peleador2->salud = n_vida2;}
+        else {peleador1->salud = n_vida2;}
         
         salida << pel1 << " hace un critico, golpe de  " << g1 << ", " << pel2 << " pierde  " << g1 << " de vida. Vida de " << pel2 << " queda en " << n_vida2 << endl;
         salida << endl;
@@ -759,8 +764,8 @@ int main(int argc, char ** argv) {
         
       }
       if (n_vida2 == 0) {
-        if (perdedor == peleador2->name) {
-          cout << perdedor << endl;
+        if (perdedor == peleador1->name) {
+          
           if (hab_2 == "Ninguno" ) {
           salida << "----------------- Fin de la pelea ----------------------------------------" << endl;
           salida <<endl;
@@ -769,16 +774,16 @@ int main(int argc, char ** argv) {
           else if (hab_2 == "Rey de los Muertos") {
             
             
-            double prob = peleador2->rey_muertos();
-            cout << prob << endl;
+            double prob = peleador1->rey_muertos();
+            
             if (prob == 1) {
               if (h_usada2 == 0) {
                 salida << "------- Habilidad especial Rey de los muerto activada -------------------" << endl;
                 salida << endl;
-                peleador2->salud = vida_pel2;
-                int ptos = (peleador2->intel)/2; 
-                int n_intel = peleador2->intel - ptos;
-                salida << "-\t" << peleador2->name << " revive, inteligencia pierde " << ptos << " puntos." << endl;
+                peleador1->salud = vida_pel2;
+                int ptos = (peleador1->intel)/2; 
+                int n_intel = peleador1->intel - ptos;
+                salida << "-\t" << peleador1->name << " revive, inteligencia pierde " << ptos << " puntos." << endl;
                 salida << endl;
                 h_usada2++;
                 }
@@ -801,6 +806,28 @@ int main(int argc, char ** argv) {
           }
         }
         }
+        //ultimo aliento
+      else if (n_vida2 >= 1 && n_vida2 <= 10) {
+        
+        if (hab_2 == "Último aliento") {
+          double ult_a = peleador1->ult_aliento();
+          if (ult_a == 1) {
+            salida << "------- Habilidad especial Útlimo aliento activada -------------------" << endl;
+            salida << endl;
+            peleador1->salud = 1;
+            int f = (peleador1->fuerza)*0.5;
+            int i = (peleador1->intel)*0.5;
+            int r = (peleador1->resist)*0.5;
+            int cambio = peleador1->fuerza + f;
+            peleador1->fuerza = cambio;
+            cambio = peleador1->intel + i;
+            peleador1->intel = cambio;
+            cambio = peleador1->resist + r;
+            peleador1->resist = cambio;
+            
+          }
+        }
+      }
       //turno pel2
       
       
@@ -813,16 +840,16 @@ int main(int argc, char ** argv) {
       }
       else if (p2 == 1) {
         //restarle vida al jugador
-        int vida1 = peleador1->salud;
+        int vida1 = peleador2->salud;
         
         n_vida1 = vida1 - g2;
         
         if (n_vida1 <= 0) {
-          peleador1->salud = 0;
+          peleador2->salud = 0;
           n_vida1 = 0;
         
         }
-        else {peleador1->salud = n_vida1;}
+        else {peleador2->salud = n_vida1;}
         
         salida << pel2 << " ataca a " << pel1 << " con un golpe de " << g2 << ", vida de " << pel1 << " queda en " << n_vida1 << endl;
         salida << endl;
@@ -836,15 +863,15 @@ int main(int argc, char ** argv) {
       }
       else if (p2 == 2) {
         //restarle vida al jugador
-        int vida1 = peleador1->salud;
+        int vida1 = peleador2->salud;
         n_vida1 = vida1 - g2;
-        peleador1->salud = n_vida1;
+        peleador2->salud = n_vida1;
         if (n_vida1 <= 0) {
-          peleador1->salud = 0;
+          peleador2->salud = 0;
           n_vida1 = 0;
           
         }
-        else {peleador1->salud = n_vida1;}
+        else {peleador2->salud = n_vida1;}
         salida << pel2 << " ataca a " << pel1 << " con un golpe de " << g2 << ", vida de " << pel1 << " queda en " << n_vida1 << endl;
         salida << endl;
         if (n_vida1 == 0) {
@@ -856,7 +883,7 @@ int main(int argc, char ** argv) {
         }
       }
       if (n_vida1 == 0) {
-        if (perdedor == peleador1->name) {
+        if (perdedor == peleador2->name) {
           if (hab_1 == "Ninguno" ) {
             salida << "----------------- Fin de la pelea ----------------------------------------" << endl;
             salida <<endl;
@@ -864,14 +891,14 @@ int main(int argc, char ** argv) {
         }
           else if (hab_1 == "Rey de los Muertos") {
             if (h_usada1 == 0) {
-              double prob = peleador1->rey_muertos();
+              double prob = peleador2->rey_muertos();
               if (prob == 1) {
                 salida << "------- Habilidad especial Rey de los muerto activada -------------------" << endl;
                 salida << endl;
                 peleador2->salud = vida_pel1;
-                int ptos = (peleador1->intel)/2; 
-                int n_intel = peleador1->intel - ptos;
-                salida << peleador1->name << " revive, inteligencia pierde " << ptos << " puntos." << endl;
+                int ptos = (peleador2->intel)/2; 
+                int n_intel = peleador2->intel - ptos;
+                salida << peleador2->name << " revive, inteligencia pierde " << ptos << " puntos." << endl;
                 salida << endl;
                 h_usada1++;
               }
@@ -882,14 +909,38 @@ int main(int argc, char ** argv) {
           else if (hab_1 == "Último aliento") {
             break;
           }
-      }   
+      }
         
+      }
+      else if (n_vida1 >= 1 && n_vida1 <= 10) {
+        
+        if (hab_1 == "Último aliento") {
+          double ult_a = peleador2->ult_aliento();
+          if (ult_a == 1) {
+            salida << "------- Habilidad especial Útlimo aliento activada -------------------" << endl;
+            salida << endl;
+            peleador2->salud = 1;
+            int f = (peleador2->fuerza)*0.5;
+            int i = (peleador2->intel)*0.5;
+            int r = (peleador2->resist)*0.5;
+            int cambio = peleador2->fuerza + f;
+            peleador2->fuerza = cambio;
+            cambio = peleador2->intel + i;
+            peleador2->intel = cambio;
+            cambio = peleador2->resist + r;
+            peleador2->resist = cambio;
+            
+          }
+          
+        }
       }
       int t = turno + 1;
       salida << "-------------------- Fin " << t << "° turno ---------------------------------------" << endl;
       salida << endl;
 
       turno++;
+      
+      
       
       
     }
@@ -908,9 +959,8 @@ int main(int argc, char ** argv) {
 
   
   
+
   
-
-
   
   
   salida.close();
@@ -918,10 +968,13 @@ int main(int argc, char ** argv) {
   delete(peleador2);
   delete(objeto1);
   delete(objeto2);
-  if (cont_obj < 2) {
+  if (cont_obj > 2) {
     delete(objeto3);
   }
-  if (cont_)
+  if (cont_obj > 3) {
+    delete(objeto4);
+  }
+  delete(arenaj);
   
   return 0;
   
