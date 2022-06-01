@@ -33,19 +33,19 @@ La arena a conferido a gary la habilidad Último aliento
 
 INICIO PELEA: 
 
-skull ataca a gary con un golpe de 73, vida de gary queda en 167
+skull hace un critico, golpe de  146, gary pierde  146 de vida. Vida de gary queda en 94
 
 gary pierde el ataque
 
 -------------------- Fin 1° turno ---------------------------------------
 
-skull hace un critico, golpe de  146, gary pierde  146 de vida. Vida de gary queda en 21
+skull ataca a gary con un golpe de 73, vida de gary queda en 21
 
 gary ataca a skull con un golpe de 0, vida de skull queda en 264
 
 -------------------- Fin 2° turno ---------------------------------------
 
-skull hace un critico, golpe de  146, gary pierde  146 de vida. Vida de gary queda en 0
+skull ataca a gary con un golpe de 73, vida de gary queda en 0
 
 -------------------- gary muere -----------------------------------------
 

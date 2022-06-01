@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include "peleador.h"
-#include <bits/stdc++.h>
+#include <math.h>
+
 
 peleador::peleador(string name, int salud, int fuerza, int vel, int intel, int resist, string leyenda) {
   
@@ -26,18 +27,6 @@ double peleador::impacto(double mr, int c) {
   return c * ((vel * fuerza) / (vel + fuerza) + intel) * mr;
 }
 
-
-void peleador::show_peleador(){
-  cout << name << ": "<< endl;
-  cout << "Salud: " << salud << endl;
-  cout << "Fuerza: " << fuerza << endl;
-  cout << "Velocidad: " << vel << endl;
-  cout << "Inteligencia: " << intel << endl;
-  cout << "Resistencia: " << resist << endl;
-  cout << "Leyenda: " << leyenda << endl;
-  cout << ""<< endl;
-  
-}
 
 double peleador::ult_aliento() { 
   int prob;
